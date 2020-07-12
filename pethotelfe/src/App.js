@@ -1,9 +1,14 @@
 import React from 'react';
+import Nav from './component/navbar'
+import PrimarySearchAppBar from './component/appbarmain'
+import {AppBar, Tabs, Tab} from '@material-ui/core'
 import './App.css';
 
 function App() {
   return (
-    <h1>Henlo</h1>
+    <div>
+      <PrimarySearchAppBar />
+    </div>
   );
 }
 
