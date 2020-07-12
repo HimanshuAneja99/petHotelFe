@@ -31,7 +31,12 @@ const useStyles = makeStyles((theme) => ({
   },
   navlink: {
       position: 'relative',
-      marginLeft: theme.spacing(2)    
+      marginLeft: theme.spacing(3)    
+  },
+  authlink: {
+    position: 'relative',
+    marginRight: theme.spacing(3),
+    marginTop: theme.spacing(0.5)
   },
   search: {
     position: 'relative',
@@ -197,13 +202,20 @@ export default function Navbar() {
             <div className={classes.navlink}>
                 <Button color="inherit">Booking</Button>
             </div>
+            <div className={classes.navlink}>
+                <Button color="inherit">About Us</Button>
+            </div>
+            <div className={classes.navlink}>
+                <Button color="inherit">Blog</Button>
+            </div>
+            <div className={classes.navlink}>
+                <Button color="inherit">How it works</Button>
+            </div>
 
-            <Button color="inherit">About Us</Button>
-            <Button color="inherit">Blog</Button>
-            <Button color="inherit">How it works</Button>
+            
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            {/* <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
               </Badge>
@@ -212,7 +224,19 @@ export default function Navbar() {
               <Badge badgeContent={17} color="secondary">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
+            <div className={classes.authlink}>
+                <Button variant="outlined" color="inherit" href="#outlined-buttons">
+                     Login
+                </Button>
+            </div>
+
+            <div className={classes.authlink}>
+                 <Button variant="contained" color="primary" style={{backgroundColor: '#fff', color: '#3f51b5'}}>
+                    Sign Up
+                </Button>
+            </div>
+            
             <IconButton
               edge="end"
               aria-label="account of current user"
