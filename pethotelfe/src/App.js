@@ -1,27 +1,48 @@
-import React from 'react';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from './component/appbarmain'
 import FooterPage from './component/footer'
 import './App.css';
+import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
+import home from "./pages/home";
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: "#757ce8",
+      main: "#212121",
+      dark: "#002884",
+      contrastText: "#fff",
+    },
+    secondary: {
+      light: "#ff7961",
+      main: "#f44336",
+      dark: "#ba000d",
+      contrastText: "#000",
+    },
+  },
+});
 
-
-
-
-function App() {
-  return (
-    <div>
-      <Navbar />
-      <div style={{marginBottom:'500px', marginTop: '100px',
-        marginLeft: '100px' }}>
-        <h1>This is the heading of the page</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      </div>
-      <FooterPage />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <MuiThemeProvider>
+        <div className="App">
+          <Router>
+            <Navbar />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={home} />
+              </Switch>
+            </div>
+            <FooterPage />
+          </Router>
+        </div>
+      </MuiThemeProvider>
+    );
+  }
 }
 
 export default App;
