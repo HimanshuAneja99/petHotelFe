@@ -7,6 +7,7 @@ import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
 import home from "./pages/home";
+import login from "./pages/login";
 
 const theme = createMuiTheme({
   palette: {
@@ -35,6 +36,7 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact path="/" component={home} />
+                <Route exact path="/login" component={login} />
               </Switch>
             </div>
             <FooterPage />

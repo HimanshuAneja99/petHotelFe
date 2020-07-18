@@ -15,6 +15,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Link from "react-router-dom/Link";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -226,7 +227,7 @@ export default function Navbar() {
               </Badge>
             </IconButton> */}
             <div className={classes.authlink}>
-                <Button variant="outlined" color="inherit" href="#outlined-buttons">
+                <Button variant="outlined" color="inherit" component={Link} to="/login">
                      Login
                 </Button>
             </div>
