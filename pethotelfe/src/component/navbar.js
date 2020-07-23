@@ -1,23 +1,39 @@
-import React from 'react'
-import {AppBar, Toolbar, ListItem, IconButton, ListItemText, Avatar, Divider, List, Typography, Box} from '@material-ui/core'
-import {ArrowBack, AssignmentInd, Home, Apps, ContactMail} from '@material-ui/icons'
-
-
-const Nav = () => {
-    return(
-        <Box component="nav">
-            <AppBar position="static" style={{}}>
-                <Toolbar>
-                    <IconButton>
-                        <ArrowBack></ArrowBack>
-                    </IconButton>
-                    <Typography variant="h4" style={{color: "white"}}>
-                        PetHotel
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </Box>
-    )
+import React, { Component } from "react";
+import Link from "react-router-dom/Link";
+// material
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+export class navbar extends Component {
+  render() {
+    return (
+      <AppBar position="fixed">
+        <Toolbar className="nav-container">
+        <Button color="inherit" component={Link} to="/">
+            Booking 
+          </Button>
+          <Button color="inherit" component={Link} to="/">
+            About Us
+          </Button>
+          <Button color="inherit" component={Link} to="/">
+            Blog 
+          </Button>
+          <Button color="inherit" component={Link} to="/">
+            How it works
+          </Button>
+          <Button color="inherit" component={Link} to="/login">
+            LogIn
+          </Button>
+          <Button color="inherit" component={Link} to="/">
+            Home
+          </Button>
+          <Button color="inherit" component={Link} to="signUp">
+            SignUp
+          </Button>
+        </Toolbar>
+      </AppBar>
+    );
+  }
 }
 
-export default Nav
+export default navbar;
