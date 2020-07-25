@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from './component/navbar'
 import FooterPage from './component/footer'
 import './App.css';
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Host from "./pages/Host";
-import { Container } from "@material-ui/core";
+import Signup from "./pages/signup"
+import SignupHost from "./pages/signUpHost"
 
 
 // Modal Function
@@ -41,6 +42,10 @@ class App extends Component {
             <div className="container">
             <Route exact path="/" component={Home} />
             <Route exact path="/host" component={Host}/>
+            <Route exact path="/signup" component={Signup}/>
+            <Route exact path="/signuphost" component={SignupHost}/>
+
+            
             </div>
                   
             <FooterPage />
