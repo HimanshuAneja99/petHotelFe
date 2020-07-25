@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUpHost() {
   const classes = useStyles();
 
   return (
@@ -44,12 +44,12 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h6">
-          Sign up as a User | <Button
+          Sign up as a Host | <Button
             variant="contained"
             color="primary"
-            href="/signuphost"
+            href="/signup"
           >
-            Sign Up as a Host
+            Sign Up as a User
           </Button>
         </Typography>
         <div>
@@ -80,7 +80,6 @@ export default function SignUp() {
                 fullWidth
                 id="lname"
                 label="Last Name"
-                
               />
             </Grid>
 
