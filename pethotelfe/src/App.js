@@ -6,8 +6,9 @@ import './App.css';
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
-import home from "./pages/home";
-import login from "./pages/login";
+import Home from "./pages/Home";
+import Host from "./pages/Host";
+import { Container } from "@material-ui/core";
 
 
 // Modal Function
@@ -36,13 +37,12 @@ class App extends Component {
         <div className="App">
           <Router>
             <Navbar />
+          
             <div className="container">
-              <Switch>
-                <Route exact path="/" component={home} />
-                <Route exact path="/login" component={login} />
-              </Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/host" component={Host}/>
             </div>
-            
+                  
             <FooterPage />
           </Router>
         </div>

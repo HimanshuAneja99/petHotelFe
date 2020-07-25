@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export class login extends Component {
+export class Host extends Component {
     render() {
         return (
             <div>
-                <h1>login</h1>
+              <p>HOST PAGE</p>
             </div>
         )
     }
 }
 
-export default login
+export default Host

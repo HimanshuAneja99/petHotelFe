@@ -75,7 +75,7 @@ export default function Navbar() {
         <Typography classname={classes.title} variant="h4" noWrap>
             PetHotel
           </Typography>
-        <Button color="inherit" className={classes.navlink} component={Link} to="/">
+        <Button color="inherit" className={classes.navlink} component={Link} to="/host">
             Booking 
           </Button>
           <Button color="inherit" className={classes.navlink} component={Link} to="/">
