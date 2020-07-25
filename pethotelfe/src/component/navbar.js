@@ -99,7 +99,7 @@ export default function Navbar() {
           </div>
 
           <div className={classes.authlink}>
-              <Button variant="contained" color="primary" style={{backgroundColor: '#fff', color: '#3f51b5'}}>
+              <Button variant="contained" color="primary" style={{backgroundColor: '#fff', color: '#3f51b5'}} component={Link} to="/signup">
                     Sign Up
               </Button>
           </div>
