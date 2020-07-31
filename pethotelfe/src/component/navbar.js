@@ -76,7 +76,7 @@ export default function Navbar() {
             PetHotel
           </Typography>
         <Button color="inherit" className={classes.navlink} component={Link} to="/host">
-            Booking 
+           HOST
           </Button>
           <Button color="inherit" className={classes.navlink} component={Link} to="/">
             About Us

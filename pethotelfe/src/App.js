@@ -10,9 +10,13 @@ import Home from "./pages/home";
 import Host from "./pages/Host";
 import Signup from "./pages/signup"
 import SignupHost from "./pages/signUpHost"
-
+import axios from 'axios';
 
 // Modal Function
+
+axios.defaults.baseUrl = "http://localhost:5000/pethotel-e7d26/us-central1/api";
+
+
 
 const theme = createMuiTheme({
   palette: {
