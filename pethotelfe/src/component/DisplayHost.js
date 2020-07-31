@@ -16,10 +16,12 @@ const styles = {
   card: {
     position: "relative",
     display: "flex",
-    marginBottom: 20,
+    marginBottom: 40,
   },
   image: {
-    minWidth: 200,
+    minWidth: 250,
+    minHeight: 200,
+    borderRadius: 400/ 2
   },
   content: {
     padding: 25,
