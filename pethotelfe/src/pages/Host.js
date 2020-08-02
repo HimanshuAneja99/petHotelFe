@@ -8,6 +8,7 @@ import DisplayHost from '../component/DisplayHost'
 import { withStyles } from "@material-ui/core/styles";
 
 import FilterDialog from '../component/FilterDialog'
+import HostSearch from '../component/HostSearch'
 
 
 const styles = theme => ({
@@ -49,10 +50,6 @@ export class Host extends Component {
 
     render() {
         const { classes } = this.props;
-        const mystyle = {
-            margin: "40px"
-        };
-        
         const btn = {
             margin: "10px"
         }
@@ -62,16 +59,8 @@ export class Host extends Component {
         return (
             <div>
             <div>
-            <form className = {classes.form} noValidate autoComplete="off">          
-                <TextField style={mystyle} id="filled-basic" label="Location" variant="filled" />
-                <TextField style={mystyle} id="filled-basic" label="Start Date" variant="filled" />
-                <TextField style={mystyle} id="filled-basic" label="End Date" variant="filled" />
-                <div>
-                <Button variant="contained" color="primary" >
-                    Find a Host
-                </Button>
-                </div>
-            </form>
+                <HostSearch/>
+            
             <hr style={{marginBottom:'50px', color:'#ddd'}} />
 
             <div>

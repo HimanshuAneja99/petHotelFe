@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Grid from "@material-ui/core/Grid";
 import Slider from '@material-ui/core/Slider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
+import { Button } from '@material-ui/core';
 
-export default function FilterDialog(){
-    return(
+export default class FilterDialog extends Component{
+    render(){
+
+        return(
         <Grid container spacing={2}>
                     <Grid item xs={12} sm={4}>
                         <h4>Pet Type Accepted</h4>
@@ -81,6 +84,16 @@ export default function FilterDialog(){
                         />
 
                     </Grid>
+
+                    <Grid item xs={12} sm={12}>
+                    <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary">
+                        Refine Search
+                     </Button>
+                    </Grid>
                 </Grid>
-    );
+        )
+    }
 }
