@@ -7,6 +7,9 @@ import TextField from '@material-ui/core/TextField';
 import DisplayHost from '../component/DisplayHost'
 import { withStyles } from "@material-ui/core/styles";
 
+import FilterDialog from '../component/FilterDialog'
+import HostSearch from '../component/HostSearch'
+
 
 const styles = theme => ({
     grow: {
@@ -27,6 +30,7 @@ export class Host extends Component {
         hosts : null,
         searchNodes: ""
     }
+    
 
    componentDidMount(){
             axios.get('http://localhost:5000/pethotel-e7d26/us-central1/api/host')
@@ -41,12 +45,11 @@ export class Host extends Component {
             })
    } 
 
+   
+
 
     render() {
         const { classes } = this.props;
-        const mystyle = {
-            margin: "40px"
-        };
         const btn = {
             margin: "10px"
         }
@@ -56,16 +59,8 @@ export class Host extends Component {
         return (
             <div>
             <div>
-            <form className = {classes.form} noValidate autoComplete="off">          
-                <TextField style={mystyle} id="filled-basic" label="Loacation" variant="filled" />
-                <TextField style={mystyle} id="filled-basic" label="Start Date" variant="filled" />
-                <TextField style={mystyle} id="filled-basic" label="End Date" variant="filled" />
-                <div>
-                <Button variant="contained" color="primary" >
-                    Find a Host
-                </Button>
-                </div>
-            </form>
+                <HostSearch/>
+            
             <hr style={{marginBottom:'50px', color:'#ddd'}} />
 
             <div>
@@ -78,7 +73,12 @@ export class Host extends Component {
                 </Button>
             </div>
 
+            <div style={{border: "#ddd 1px solid", margin: "20px", padding: "20px"}}>
+               <FilterDialog/>
             </div>
+            </div>
+            
+
              {hosts}
             </div>
         )
