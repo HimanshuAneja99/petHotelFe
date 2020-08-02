@@ -6,9 +6,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import DisplayHost from '../component/DisplayHost'
 import { withStyles } from "@material-ui/core/styles";
-import Slider from '@material-ui/core/Slider';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
+
+import FilterDialog from '../component/FilterDialog'
 
 
 const styles = theme => ({
@@ -86,81 +85,7 @@ export class Host extends Component {
             </div>
 
             <div style={{border: "#ddd 1px solid", margin: "20px", padding: "20px"}}>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                        <h4>Pet Type Accepted</h4>
-                        
-                    </Grid>
-                    <Grid item xs={12} sm={4}>
-                        <h4>Price</h4>
-                        <Slider valueLabelDisplay="auto" aria-labelledby="range-slider"/>
-                        <Grid item sm={12}>From <TextField id="standard-basic" label="Rs. 450" /></Grid>
-                        <Grid item sm={12}>Upto <TextField id="standard-basic" label="Rs. 950" /></Grid>
-                    </Grid>
-                    <Grid item xs={12} sm={4}>
-                        <h4>More Filters </h4>
-                        <FormControlLabel
-                          control={
-                           <Checkbox
-                         // checked={state.checkedB}
-                         // onChange={handleChange}
-                          name="checkedB"
-                          color="primary"
-                           />
-                        }
-                        label="Show Verified Hosts Only"
-                        />
-
-                        <FormControlLabel
-                          control={
-                           <Checkbox
-                         // checked={state.checkedB}
-                         // onChange={handleChange}
-                          name="checkedB"
-                          color="primary"
-                           />
-                        }
-                        label="Show Hosts Without Pets"
-                        />
-
-                        <FormControlLabel
-                          control={
-                           <Checkbox
-                         // checked={state.checkedB}
-                         // onChange={handleChange}
-                          name="checkedB"
-                          color="primary"
-                           />
-                        }
-                        label="Having Open Play Area"
-                        />
-
-                        <FormControlLabel
-                          control={
-                           <Checkbox
-                         // checked={state.checkedB}
-                         // onChange={handleChange}
-                          name="checkedB"
-                          color="primary"
-                           />
-                        }
-                        label="Show Professional Trainers"
-                        />
-
-                        <FormControlLabel
-                          control={
-                           <Checkbox
-                         // checked={state.checkedB}
-                         // onChange={handleChange}
-                          name="checkedB"
-                          color="primary"
-                           />
-                        }
-                        label="Show Pet Hotels Only"
-                        />
-
-                    </Grid>
-                </Grid>
+               <FilterDialog/>
             </div>
             </div>
             
