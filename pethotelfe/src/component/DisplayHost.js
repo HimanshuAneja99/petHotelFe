@@ -34,11 +34,11 @@ export class DisplayHost extends Component {
     render() {
      
         dayjs.extend(relativeTime);
-        const { classes , host : {name , price ,email , phone , body , createdAt , userHandle , userImage}} = this.props;  
+        const { classes , host : {name , price ,email , phone , body , createdAt , userHandle , imageUrl}} = this.props;  
         return (
             <Card className={classes.card}>
             <CardMedia
-              image={userImage}
+              image={imageUrl}
               title="profile image"
               className={classes.image}
             />
