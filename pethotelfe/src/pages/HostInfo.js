@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import HostImages from '../component/HostImages'
+
 import Grid from '@material-ui/core/Grid';
 import HostAbout from '../component/HostAbout';
 import HostPrice from '../component/HostPrice';
-
+import HostImages from '../component/HostImages';
+import HostServices from '../component/HostServices'
 export default class HostInfo extends Component{
     render(){
         return(
@@ -14,6 +15,7 @@ export default class HostInfo extends Component{
                     </Grid>
                     <Grid item xs={7}>
                         <HostAbout/>
+                        <HostServices/>
                     </Grid>
                     <Grid item xs={5}>
                         <HostPrice/>
