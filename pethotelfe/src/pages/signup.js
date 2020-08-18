@@ -11,8 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Container from '@material-ui/core/Container';
 import CircularProgress from "@material-ui/core/CircularProgress";
-import axios from 'axios';
-
+import {connect} from 'react-redux';
+import {signupUser} from '../redux/actions/userAction'
 
 const styles  = {
   form: {
@@ -70,7 +70,12 @@ class signup extends Component {
       errors : {}
     }
   }
-
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors });
+    }
+  }
+  
   handleChange = (event) =>{
     this.setState({
       [event.target.name] : event.target.value
@@ -79,9 +84,6 @@ class signup extends Component {
   }
   handleSubmit = (event) =>{
       event.preventDefault()
-      this.setState({
-        loading : true
-      })
       const newUserData = {
         name : this.state.name,
         email : this.state.email,
@@ -91,28 +93,13 @@ class signup extends Component {
         phone : this.state.phone,
         body : this.state.body
       }
-      axios.post('http://localhost:5000/pethotel-e7d26/us-central1/api/host/signup',newUserData)
-      .then((res)=>{
-        localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
-          console.log(res.data)
-          this.setState({
-            loading:false
-          })
-          this.props.history.push('/')
-      })
-      .catch((err)=>{
-          console.log(err.response.data)
-        this.setState({
-          errors : err.response.data,
-          loading: false
-        })
-      })
+     this.props.signupUser(newUserData,this.props.history);
   }
 
 
 render(){
-  const {classes} = this.props;
-  const {errors,loading} = this.state; 
+  const {classes,UI :{loading}} = this.props;
+  const {errors} = this.state; 
   return (
     <Container component="main" maxWidth="sm">
       <CssBaseline />
@@ -268,4 +255,12 @@ render(){
   );
 }
 }
-export default withStyles(styles)(signup);
+
+const mapStateToProps = (state) => ({
+  user: state.user,
+  UI: state.UI,
+});
+const mapActionToProps = {
+  signupUser,
+};
+export default connect(mapStateToProps,mapActionToProps)(withStyles(styles)(signup));

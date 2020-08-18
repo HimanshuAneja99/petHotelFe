@@ -33,7 +33,7 @@ export class Host extends Component {
     
 
    componentDidMount(){
-            axios.get('http://localhost:5000/pethotel-e7d26/us-central1/api/host')
+            axios.get('http://localhost:5000/pethotel-e7d26/us-central1/api/hosts')
             .then((res)=>{
                 console.log(res.data)
                 this.setState({

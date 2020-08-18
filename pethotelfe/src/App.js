@@ -13,7 +13,11 @@ import SignupHost from "./pages/signUpHost"
 import axios from 'axios';
 import login from "./pages/login";
 import jwtDecode from "jwt-decode";
-// Modal Function
+//redux
+import {Provider} from 'react-redux';
+import store from './redux/store'
+import { SET_AUTHENTICATED } from "./redux/type";
+import { logoutUser, getUserData } from "./redux/actions/userAction";
 
 axios.defaults.baseUrl = "http://localhost:5000/pethotel-e7d26/us-central1/api";
 
@@ -35,33 +39,38 @@ const theme = createMuiTheme({
   },
 });
 
-let authenticated = false;
+
 const token = localStorage.FBIdToken;
 if (token) {
   const decodedToken = jwtDecode(token);
-  console.log(decodedToken);
+  //console.log(decodedToken);
   if (decodedToken.exp * 1000 < Date.now()) {
+    store.dispatch(logoutUser());
     window.location.href = "/login";
-    authenticated = false;
   } else {
-    authenticated = true;
+    store.dispatch({ type: SET_AUTHENTICATED });
+    axios.defaults.headers.common["Authorization"] = token;
+    store.dispatch(getUserData());
   }
 }
+
+
 
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
+        <Provider store={store}>
         <div className="App">
           <Router>
             <Navbar />
           
             <div className="container">
             <Route exact path="/" component={Home} />
-            <AuthRoute exact path="/login" component={login} authenticated={authenticated}/>
+            <AuthRoute exact path="/login" component={login} />
             <Route exact path="/host" component={Host}/>
-            <AuthRoute exact path="/signup" component={signup} authenticated={authenticated}/>
-            <AuthRoute exact path="/signuphost" component={SignupHost} authenticated={authenticated}/>
+            <AuthRoute exact path="/signup" component={signup} />
+            <AuthRoute exact path="/signuphost" component={SignupHost} />
 
             
             </div>
@@ -69,6 +78,8 @@ class App extends Component {
             <FooterPage />
           </Router>
         </div>
+        </Provider>
+       
       </MuiThemeProvider>
     );
   }
