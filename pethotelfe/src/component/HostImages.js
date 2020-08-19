@@ -7,7 +7,7 @@ export default class HostImages extends Component{
         return(
             <Grid container spacing={10}>
                 <Grid item xs={6}>
-                    <div style={{width: '636px',height: '400px',left: '72px',top: '152px',
+                    <div style={{width: '636px', height: '400px',left: '72px',top: '152px',
                     borderRadius: '20px 0px 0px 20px'}}>
                         <img src={require('../images/host1.png')}/>
                     </div>

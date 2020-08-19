@@ -32,6 +32,9 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  logo: {
+    padding: '5px'
   }
 });
 
@@ -39,7 +42,7 @@ const styles = theme => ({
 
 
 
-export class navbar extends Component {
+export class Navbar extends Component {
   state = {
     searchNodes: ""
   };
@@ -48,21 +51,22 @@ export class navbar extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <AppBar position="fixed">
+      <AppBar position="fixed" style={{color: '#000', backgroundColor:'#fff'}}> 
         <Toolbar className="nav-container">
-        <Typography classname={classes.title} variant="h4" noWrap>
-            PetHotel
-          </Typography>
-        <Button color="inherit" className={classes.navlink} component={Link} to="/">
-            Booking 
+          <div className={classes.logo}>
+            <img src={require('../images/logo.png')}/>
+          </div>
+        
+        <Button color="inherit" className={classes.navlink} component={Link} to="/host">
+            Host 
           </Button>
-          <Button color="inherit" className={classes.navlink} component={Link} to="/">
+          <Button color="inherit" className={classes.navlink} component={Link} to="/aboutus">
             About Us
           </Button>
-          <Button color="inherit" className={classes.navlink} component={Link} to="/">
+          <Button color="inherit" className={classes.navlink} component={Link} to="/blog">
             Blog 
           </Button>
-          <Button color="inherit" className={classes.navlink} component={Link} to="/">
+          <Button color="inherit" className={classes.navlink} component={Link} to="/howitworks">
             How it works
           </Button>
 
@@ -71,13 +75,13 @@ export class navbar extends Component {
 
           </div>
           <div className={classes.authlink}>
-              <Button variant="outlined" color="inherit" type="button" >
+              <Button variant="outlined" color="inherit" type="button" component={Link} to="/login">
                      Login
               </Button>
           </div>
 
           <div className={classes.authlink}>
-              <Button variant="contained" color="primary" style={{backgroundColor: '#fff', color: '#3f51b5'}}>
+              <Button variant="contained" color="primary" style={{color: '#fff', backgroundColor: 'primary'}} component={Link} to="/signup">
                     Sign Up
               </Button>
           </div>
@@ -87,4 +91,4 @@ export class navbar extends Component {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(navbar);
+export default withStyles(styles, { withTheme: true })(Navbar);
